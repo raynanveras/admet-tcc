@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Figuras — Perfil ADMET da série 2l–3l (Deep-PK)</title>
+<style>
+:root{
+  color-scheme:light;
+  --page:#f9f9f7; --surface:#fcfcfb; --surface-2:#f2f1ec;
+  --text:#0b0b0b; --text-2:#52514e; --muted:#898781;
+  --grid:#e1e0d9; --baseline:#c3c2b7; --border:rgba(11,11,11,.10);
+  --s1:#2a78d6; --s2:#eb6834; --s3:#1baf7a; --s4:#eda100; --s6:#008300; --s7:#6250d6; --s8:#e34948;
+  --good:#0ca30c; --warn:#fab219; --serious:#ec835a; --critical:#d03b3b;
+  --on-fill:#fff; --on-fill-dark:#0b0b0b;
+}
+:root[data-theme="dark"]{
+  color-scheme:dark;
+  --page:#0d0d0d; --surface:#1a1a19; --surface-2:#232321;
+  --text:#f0efec; --text-2:#c3c2b7; --muted:#898781;
+  --grid:#2c2c2a; --baseline:#383835; --border:rgba(255,255,255,.10);
+  --s1:#3987e5; --s2:#d95926; --s3:#199e70; --s4:#c98500; --s6:#0ca30c; --s7:#9085e9; --s8:#e66767;
+}
+*{box-sizing:border-box}
+.nav{display:flex;gap:18px;align-items:center;margin-bottom:22px;
+  padding-bottom:12px;border-bottom:1px solid var(--border);flex-wrap:wrap}
+.nav a{color:var(--text-2);text-decoration:none;font-size:13.5px;padding:3px 0;
+  border-bottom:2px solid transparent}
+.nav a:hover{color:var(--text)}
+.nav a.atual{color:var(--text);font-weight:600;border-bottom-color:var(--s1)}
+body{margin:0;background:var(--page);color:var(--text);
+  font:14px/1.5 ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  -webkit-font-smoothing:antialiased}
+.wrap{max-width:1240px;margin:0 auto;padding:28px 22px 64px}
+header h1{font-size:21px;font-weight:650;margin:0 0 4px;letter-spacing:-.01em}
+header p{margin:0;color:var(--text-2);font-size:13.5px;max-width:78ch}
+.bar{position:sticky;top:0;z-index:20;background:var(--page);
+  border-bottom:1px solid var(--border);padding:14px 0 12px;margin:20px 0 22px}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+.row+.row{margin-top:10px}
+.lbl{font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);
+  margin-right:2px;white-space:nowrap}
+button{font:inherit;cursor:pointer;border:1px solid var(--border);background:var(--surface);
+  color:var(--text-2);border-radius:7px;padding:5px 11px;font-size:13px;
+  transition:background .12s,color .12s,border-color .12s}
+button:hover{background:var(--surface-2);color:var(--text)}
+button:focus-visible{outline:2px solid var(--s1);outline-offset:2px}
+button[aria-pressed="true"]{background:var(--text);color:var(--page);border-color:var(--text)}
+.chip-cat[aria-pressed="true"]{background:var(--c);border-color:var(--c);color:#fff}
+.spacer{flex:1}
+.stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(168px,1fr));gap:12px;margin-bottom:24px}
+.stat{background:var(--surface);border:1px solid var(--border);border-radius:11px;padding:13px 15px}
+.stat .k{font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted)}
+.stat .v{font-size:25px;font-weight:650;letter-spacing:-.02em;margin-top:3px;font-variant-numeric:tabular-nums}
+.stat .s{font-size:12px;color:var(--text-2);margin-top:1px}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(282px,1fr));gap:13px}
+.card{background:var(--surface);border:1px solid var(--border);border-radius:11px;
+  padding:13px 15px 11px;position:relative}
+.card .cat{font-size:10.5px;letter-spacing:.05em;text-transform:uppercase;font-weight:600}
+.card h3{font-size:13.5px;font-weight:600;margin:3px 0 9px;line-height:1.3}
+.val{font-size:21px;font-weight:650;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.unit{font-size:12px;color:var(--muted);font-weight:400;margin-left:3px}
+.pct{font-size:11.5px;color:var(--text-2);margin-top:5px}
+.badge{display:inline-flex;align-items:center;gap:5px;border-radius:999px;
+  padding:3px 10px;font-size:12.5px;font-weight:600}
+.pbar{height:7px;border-radius:4px;background:var(--surface-2);overflow:hidden;margin-top:9px;
+  display:flex;gap:2px}
+.pbar i{display:block;height:100%;border-radius:4px}
+.cmp{font-size:11.5px;color:var(--text-2);margin-top:6px;display:flex;justify-content:space-between;gap:8px}
+svg{display:block;overflow:visible}
+.sep{font-size:11px;color:var(--muted);margin-top:7px}
+.sig{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--s1);
+  vertical-align:middle;margin-right:4px}
+table{border-collapse:collapse;width:100%;font-size:12.5px;margin-top:10px}
+th,td{text-align:left;padding:7px 10px;border-bottom:1px solid var(--grid);
+  font-variant-numeric:tabular-nums}
+th{font-size:11px;letter-spacing:.05em;text-transform:uppercase;color:var(--muted);font-weight:600;
+  position:sticky;top:0;background:var(--page)}
+tbody tr:hover{background:var(--surface-2)}
+details{margin-top:30px;background:var(--surface);border:1px solid var(--border);
+  border-radius:11px;padding:14px 17px}
+summary{cursor:pointer;font-weight:600;font-size:14px}
+.tw{max-height:560px;overflow:auto;margin-top:6px}
+footer{margin-top:34px;padding-top:16px;border-top:1px solid var(--border);
+  color:var(--muted);font-size:11.5px;line-height:1.65}
+#tip{position:fixed;pointer-events:none;opacity:0;transition:opacity .1s;z-index:60;
+  background:var(--text);color:var(--page);padding:6px 9px;border-radius:7px;
+  font-size:12px;white-space:nowrap;font-variant-numeric:tabular-nums;
+  box-shadow:0 4px 14px rgba(0,0,0,.18)}
+.empty{color:var(--muted);padding:28px 2px;font-size:13.5px}
+@media (max-width:620px){.wrap{padding:20px 14px 48px}.grid{grid-template-columns:1fr}}
+
+.fig{margin:0 0 42px;background:var(--surface);border:1px solid var(--border);
+  border-radius:11px;padding:20px 22px 16px}
+.fig h2{font-size:16px;font-weight:650;margin:0 0 6px;letter-spacing:-.01em}
+.fig figcaption p{margin:0 0 16px;color:var(--text-2);font-size:13.5px;max-width:84ch}
+.fig img{width:100%;height:auto;border-radius:7px;border:1px solid var(--border);
+  background:#fcfcfb}
+.dl{margin:10px 0 0;font-size:12.5px}
+.dl a{color:var(--s1);text-decoration:none}
+.dl a:hover{text-decoration:underline}
+</style>
+</head>
+<body>
+<div class="wrap">
+<nav class="nav">
+  <a href="index.html">Painel interativo</a>
+  <a class="atual" href="figuras.html">Figuras</a>
+  <a href="dados/resultados_wide.csv" download>Baixar dados (CSV)</a>
+</nav>
+<header>
+  <h1>Figuras</h1>
+  <p>Predições ADMET do Deep-PK para a série 2l–3l (15 ligantes) contra 600 decoys
+     DeepCoy. Todas em 300 dpi; clique para abrir em tamanho cheio.</p>
+</header>
+
+<div class="bar" style="position:static;border:0;margin:18px 0 26px;padding:0">
+  <button id="tema">Modo escuro</button>
+</div>
+
+  <figure class="fig">
+    <figcaption><h2>Figura 1 — Perfil ADMET da série</h2><p>Heatmap dos 24 endpoints de regressão para os 15 ligantes. A cor é o z-score em relação à mediana dos 600 decoys: cinza significa indistinguível do baseline. As colunas quase idênticas mostram que a série é farmacocineticamente homogênea (desvio-padrão mediano de 0,71 σ entre os ligantes).</p></figcaption>
+    <a href="figuras/fig1_perfil_serie_heatmap.png" target="_blank" rel="noopener">
+      <img src="figuras/fig1_perfil_serie_heatmap.png" alt="Figura 1 — Perfil ADMET da série" loading="lazy">
+    </a>
+    <p class="dl"><a href="figuras/fig1_perfil_serie_heatmap.png" download>Baixar PNG em 300 dpi</a></p>
+  </figure>
+
+  <figure class="fig">
+    <figcaption><h2>Figura 2 — Alertas toxicológicos e de interação</h2><p>Matriz de 20 endpoints de risco por ligante. O número é a probabilidade da classe de risco; a cor combina essa probabilidade com a classe que o modelo prediz. Hepatotoxicidade (DILI I e II) e toxicidade respiratória aparecem nos 15 ligantes; hERG, CYP2D6, CYP3A4 e P-gp ficam praticamente limpos.</p></figcaption>
+    <a href="figuras/fig5_alertas.png" target="_blank" rel="noopener">
+      <img src="figuras/fig5_alertas.png" alt="Figura 2 — Alertas toxicológicos e de interação" loading="lazy">
+    </a>
+    <p class="dl"><a href="figuras/fig5_alertas.png" download>Baixar PNG em 300 dpi</a></p>
+  </figure>
+
+  <figure class="fig">
+    <figcaption><h2>Figura 3 — Separação entre ativos e decoys</h2><p>Tamanho de efeito dos 73 endpoints, ordenado. Pontos cheios indicam FDR &lt; 0,05 (30 endpoints); anéis vazados, não significativo. As linhas tracejadas marcam o limiar de efeito grande. Mann-Whitney para os numéricos, Fisher exato para os categóricos, correção de Benjamini-Hochberg.</p></figcaption>
+    <a href="figuras/fig2_separacao_ativos_decoys.png" target="_blank" rel="noopener">
+      <img src="figuras/fig2_separacao_ativos_decoys.png" alt="Figura 3 — Separação entre ativos e decoys" loading="lazy">
+    </a>
+    <p class="dl"><a href="figuras/fig2_separacao_ativos_decoys.png" download>Baixar PNG em 300 dpi</a></p>
+  </figure>
+
+  <figure class="fig">
+    <figcaption><h2>Figura 4 — Distribuições de maior separação</h2><p>Os seis endpoints numéricos com maior efeito. Barras: distribuição dos 600 decoys. Pontos: os 15 ativos. A pouca sobreposição indica que o par ativo/decoy é distinguível por propriedade, e não apenas por complementaridade ao sítio.</p></figcaption>
+    <a href="figuras/fig3_distribuicoes_top6.png" target="_blank" rel="noopener">
+      <img src="figuras/fig3_distribuicoes_top6.png" alt="Figura 4 — Distribuições de maior separação" loading="lazy">
+    </a>
+    <p class="dl"><a href="figuras/fig3_distribuicoes_top6.png" download>Baixar PNG em 300 dpi</a></p>
+  </figure>
+
+  <figure class="fig">
+    <figcaption><h2>Figura 5 — Endpoints categóricos que separam</h2><p>Proporção de cada grupo na classe indicada, nos 12 endpoints de classificação com FDR &lt; 0,05. Com 15 ativos, cada molécula vale 6,7 pontos percentuais — daí os valores de 0% e 100%.</p></figcaption>
+    <a href="figuras/fig4_categoricos_significativos.png" target="_blank" rel="noopener">
+      <img src="figuras/fig4_categoricos_significativos.png" alt="Figura 5 — Endpoints categóricos que separam" loading="lazy">
+    </a>
+    <p class="dl"><a href="figuras/fig4_categoricos_significativos.png" download>Baixar PNG em 300 dpi</a></p>
+  </figure>
+
+<footer>
+  Predições: <strong>Deep-PK</strong> — Myung Y, de Sá AGC, Ascher DB.
+  <em>Deep-PK: deep learning for small molecule pharmacokinetic and toxicity prediction.</em>
+  Nucleic Acids Research 2024;52(W1):W469–W475.<br>
+  Decoys gerados com DeepCoy, property-matched (MW, logP, HBD/HBA, carga).<br>
+  Os 15 ligantes são análogos da mesma série química — os testes os tratam como
+  observações independentes, então os valores de FDR são otimistas.
+  Valores in silico não substituem ensaio.
+</footer>
+</div>
+<script>
+const t = document.getElementById('tema');
+t.addEventListener('click', () => {
+  const esc = document.documentElement.dataset.theme === 'dark';
+  document.documentElement.dataset.theme = esc ? 'light' : 'dark';
+  t.textContent = esc ? 'Modo escuro' : 'Modo claro';
+});
+if (matchMedia('(prefers-color-scheme: dark)').matches) {
+  document.documentElement.dataset.theme = 'dark';
+  t.textContent = 'Modo claro';
+}
+</script>
+</body>
+</html>
