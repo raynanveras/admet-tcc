@@ -4,8 +4,8 @@ Material suplementar do TCC. Predições de farmacocinética e toxicidade (ADMET
 uma série de 15 ligantes candidatos a inibidores de DHODH (PDB 9XYG), comparadas a
 600 decoys property-matched.
 
-**→ [Painel interativo](https://SEU-USUARIO.github.io/admet-tcc/)**
-· [Figuras](https://SEU-USUARIO.github.io/admet-tcc/figuras.html)
+**→ [Painel interativo](https://raynanveras.github.io/admet-tcc/)**
+· [Figuras](https://raynanveras.github.io/admet-tcc/figuras.html)
 
 ## O que está aqui
 
